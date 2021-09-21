@@ -2,8 +2,32 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: content-box;
+	/*font-family: 'Grechen Fuemen', cursive;*/
 }
 
-#thisNav {
+#thisNav{
+	color: pink;
+}
+
+.pizzaPic{
 	height: 200px;
 }
+
+.editBtn, .archiveBtn, .unarchiveBtn{
+	width: 48%;
+	height: 40px;
+	margin: 2px;
+	font-size: 10px;
+}
+
+
+/*#navbrand{
+	color: green;
+}*/
+
+/*@media (min-width: 768px){
+
+	#thisNav {
+		height: 60px;
+	}
+}*/

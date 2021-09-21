@@ -16,13 +16,15 @@ export default function Login(){
 	const [password, setPassword] = useState('');
 	const {user, setUser} = useContext(UserContext);
 
+	// console.log("from login", user);
+
 	let history = useHistory();
 
 	const loginUser = (e) => {
 
 		e.preventDefault();
 
-		fetch("https://pacific-falls-33363.herokuapp.com/api/users/login", {
+		fetch("https://serene-dawn-74407.herokuapp.com/api/users/login", {
 			method: "POST",
 			headers: {
 				"Content-Type" : "application/json"
@@ -40,7 +42,7 @@ export default function Login(){
 
 				let token = localStorage.getItem('token');
 
-				fetch("https://pacific-falls-33363.herokuapp.com/api/users/get-profile", {
+				fetch("https://serene-dawn-74407.herokuapp.com/api/users/get-profile", {
 					method: "GET",
 					headers: {
 						"Authorization" : `Bearer ${token}`,
@@ -53,8 +55,9 @@ export default function Login(){
 
 					setUser({
 						id: result._id,
-						isAdmin: result.isAdmin
-					})
+						isAdmin: result.isAdmin,
+						name: result.firstName
+					});
 
 					alert('You are logged in successfully'); //remove after?
 

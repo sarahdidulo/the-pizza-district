@@ -12,7 +12,7 @@ export default function Register(e){
 
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
-	// const [mobileNo, setMobileNo] = useState(''); //UNCOMMENT AFTERWARDS
+	const [mobileNo, setMobileNo] = useState(''); //UNCOMMENT AFTERWARDS
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [password2, setPassword2] = useState('');
@@ -27,7 +27,7 @@ export default function Register(e){
 			alert("Please re-enter again your password");
 		} else {
 
-			fetch("https://pacific-falls-33363.herokuapp.com/api/users/check-email", {
+			fetch("https://serene-dawn-74407.herokuapp.com/api/users/check-email", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"
@@ -39,7 +39,7 @@ export default function Register(e){
 			.then(result=>{
 				if(result == false){ //email is unique and can be used to register
 
-					fetch("https://pacific-falls-33363.herokuapp.com/api/users/register", {
+					fetch("https://serene-dawn-74407.herokuapp.com/api/users/register", {
 						method: "POST",
 						headers: {
 							"Content-Type" : "application/json"
@@ -47,7 +47,7 @@ export default function Register(e){
 						body: JSON.stringify({
 							firstName: firstName,
 							lastName: lastName,
-							// mobileNo: mobileNo,
+							mobileNo: mobileNo,
 							email: email,
 							password: password
 						})
@@ -77,15 +77,15 @@ export default function Register(e){
 
 	useEffect(()=>{
 
-		console.log(firstName)
-		console.log()
-		if(firstName != '' && lastName != '' && email != '' && password != '' && password2 != ''){ //include mobileNo afterwards
+		// console.log(firstName)
+		// console.log()
+		if(firstName != '' && lastName != '' && email != '' && mobileNo != '' && password != '' && password2 != ''){ //include mobileNo afterwards
 			setDisabled(false);
 		} else {
 			setDisabled(true);
 		}
 
-	}, [firstName, lastName, email, password, password2]); //include mobileNo afterwards
+	}, [firstName, lastName, email, mobileNo, password, password2]); //include mobileNo afterwards
 
 	return(
 
@@ -104,10 +104,10 @@ export default function Register(e){
 				    <Form.Control type="text" placeholder="Enter Last Name" onChange={(e)=>{setLastName(e.target.value)}}/>
 				  </Form.Group>
 
-				  {/*<Form.Group className="mb-3" controlId="formBasicEmail">
+				  <Form.Group className="mb-3" controlId="formBasicEmail">
 				    <Form.Label>Mobile Number</Form.Label>
 				    <Form.Control type="text" placeholder="Enter Mobile number" onChange={(e)=>{setMobileNo(e.target.value)}}/>
-				  </Form.Group>*/}
+				  </Form.Group>
 
 				  <Form.Group className="mb-3" controlId="formBasicEmail">
 				    <Form.Label>Email address: </Form.Label>
