@@ -31,7 +31,7 @@ export default function AppNav() {
 	let checkUser = (user.id !== null)?
 			 
 				<Fragment>
-					<Nav.Link href="/products">Products</Nav.Link>
+					<Nav.Link href="/products">Menu</Nav.Link>
 					<Nav.Link onClick={logOut}>Log Out</Nav.Link>
 				</Fragment>
 			
@@ -51,9 +51,9 @@ export default function AppNav() {
       	</Fragment>
       	*/
 
-      	<Navbar id= "thisNav" bg="dark" expand="lg" variant="dark" className="d-flex">
+      	<Navbar id= "thisNav" expand="lg" variant="dark" className="d-flex" fixed="top">
       	  <Container>
-      	    <Navbar.Brand id="navbrand" href="#home">React-Bootstrap</Navbar.Brand>
+      	    <Navbar.Brand id="navbrand" href="/home">THE PIZZA DISTRICT</Navbar.Brand>
       	    <Navbar.Toggle aria-controls="basic-navbar-nav" />
       	    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-lg-end">
       	      <Nav className="me-auto">
