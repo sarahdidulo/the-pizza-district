@@ -20,10 +20,12 @@ export default function Home(){
 						      alt="First slide"
 						    />
 						    <Carousel.Caption>
-						      <h3>First slide label</h3>
-						      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-						      <Button className="btn btn-success m-2">Add to cart</Button>
-						      <Button className="btn btn-info">See the Full Menu</Button>
+						    <div className="text-left">
+						      <h2>Supreme Pizza</h2>
+						      <Button href="/products" className="btn rounded-0 pizzaButton">See the Full Menu</Button>
+						     </div>
+						      {/*<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>*/}
+						      
 						    </Carousel.Caption>
 						  </Carousel.Item>
 						  <Carousel.Item className="pizzas">
@@ -34,10 +36,11 @@ export default function Home(){
 						    />
 
 						    <Carousel.Caption>
-						      <h3>Second slide label</h3>
-						      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						      <Button className="btn btn-success m-2">Add to cart</Button>
-						      <Button href="/products" className="btn btn-info">See the Full Menu</Button>
+						     <div className="text-left">
+						      <h2>Vegetable Pizza</h2>
+						      <Button href="/products" className="btn rounded-0 pizzaButton">See the Full Menu</Button>
+						     </div>
+						    {/*  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>*/}
 						    </Carousel.Caption>
 						  </Carousel.Item>
 						  <Carousel.Item className="pizzas">
@@ -48,10 +51,11 @@ export default function Home(){
 						    />
 
 						    <Carousel.Caption>
-						      <h3>Third slide label</h3>
-						      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-						      <Button className="btn btn-success m-2">Add to cart</Button>
-						      <Button className="btn btn-info">See the Full Menu</Button>
+						      <div className="text-left">
+						      <h2>Pepperoni Pizza</h2>
+						      <Button href="/products" className="btn rounded-0 pizzaButton">See the Full Menu</Button>
+						     </div>
+						     {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>*/}
 						    </Carousel.Caption>
 						  </Carousel.Item>
 						</Carousel>

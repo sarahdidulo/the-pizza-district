@@ -59,7 +59,7 @@ export default function Login(){
 						name: result.firstName
 					});
 
-					alert('You are logged in successfully'); //remove after?
+					// alert('You are logged in successfully'); //remove after?
 
 					history.push('/home');
 
@@ -77,11 +77,10 @@ export default function Login(){
 	return (
 		<Container fluid>
 		<div className = "row">
-
 			<div className = "col-12 col-md-6 p-0">
 				<div id = "bg-home">
 					<div className="d-flex d-block d-md-none justify-content-center">
-						<Form className="loginFormSmall" onSubmit={(e)=>{loginUser(e)}}>
+						<Form className="loginFormSmall rounded pb-5" onSubmit={(e)=>{loginUser(e)}}>
 							<div className = "home-brand text-center">
 								<h3>THE</h3>
 								<h1>PIZZA DISTRICT</h1>

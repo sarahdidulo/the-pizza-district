@@ -90,47 +90,115 @@ export default function Register(e){
 	return(
 
 		<Container fluid>
-		<div className = "row">
-			<div className = "col-12 col-md-8 offset-md-2 p-5">
-			<h1 className = "text-center">Register</h1>
-				<Form onSubmit={(e)=>{registerUser(e)}} > 
-				  <Form.Group className="mb-3" controlId="formBasicEmail">
-				    <Form.Label>First Name:</Form.Label>
-				    <Form.Control type="text" placeholder="Enter First Name" onChange={(e)=>{setFirstName(e.target.value)}}/>
-				  </Form.Group>
+				<div className = "row">
+					<div className = "col-12 col-md-6 p-0">
+						<div className = "bg-register">
+							<div className="d-flex d-block d-md-none justify-content-center">
+								
+									<Form className="loginFormSmall rounded pb-5" onSubmit={(e)=>{registerUser(e)}} > 
+									<div className = "home-brand text-center">
+										<h3>THE</h3>
+										<h1>PIZZA DISTRICT</h1>
+										{/*<img className="arrows mt-3" src="images/arrows.png"/>*/}
+										<img className="road" src="images/road.png"/>
+									</div>
+									{/*<h4 className = "text-center mt-3">Sign Up</h4>*/}
+									  <Form.Group className="mb-3" controlId="formBasicEmail">
+									    <Form.Label>First Name:</Form.Label>
+									    <Form.Control type="text" placeholder="Enter First Name" onChange={(e)=>{setFirstName(e.target.value)}}/>
+									  </Form.Group>
 
-				  <Form.Group className="mb-3" controlId="formBasicEmail">
-				    <Form.Label>Last Name:</Form.Label>
-				    <Form.Control type="text" placeholder="Enter Last Name" onChange={(e)=>{setLastName(e.target.value)}}/>
-				  </Form.Group>
+									  <Form.Group className="mb-3" controlId="formBasicEmail">
+									    <Form.Label>Last Name:</Form.Label>
+									    <Form.Control type="text" placeholder="Enter Last Name" onChange={(e)=>{setLastName(e.target.value)}}/>
+									  </Form.Group>
 
-				  <Form.Group className="mb-3" controlId="formBasicEmail">
-				    <Form.Label>Mobile Number</Form.Label>
-				    <Form.Control type="text" placeholder="Enter Mobile number" onChange={(e)=>{setMobileNo(e.target.value)}}/>
-				  </Form.Group>
+									  <Form.Group className="mb-3" controlId="formBasicEmail">
+									    <Form.Label>Mobile Number</Form.Label>
+									    <Form.Control type="text" placeholder="Enter Mobile number" onChange={(e)=>{setMobileNo(e.target.value)}}/>
+									  </Form.Group>
 
-				  <Form.Group className="mb-3" controlId="formBasicEmail">
-				    <Form.Label>Email address: </Form.Label>
-				    <Form.Control type="email" placeholder="Enter email" onChange={(e)=>{setEmail(e.target.value)}}/>
-				  </Form.Group>
+									  <Form.Group className="mb-3" controlId="formBasicEmail">
+									    <Form.Label>Email address: </Form.Label>
+									    <Form.Control type="email" placeholder="Enter email" onChange={(e)=>{setEmail(e.target.value)}}/>
+									  </Form.Group>
 
-				  <Form.Group className="mb-3" controlId="formBasicPassword">
-				    <Form.Label>Password: </Form.Label>
-				    <Form.Control type="password" placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}}/>
-				  </Form.Group>
+									  <Form.Group className="mb-3" controlId="formBasicPassword">
+									    <Form.Label>Password: </Form.Label>
+									    <Form.Control type="password" placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}}/>
+									  </Form.Group>
 
-				  <Form.Group className="mb-3" controlId="formBasicPassword">
-				    <Form.Label>Re-enter Password: </Form.Label>
-				    <Form.Control type="password" placeholder="Verify Password" onChange={(e)=>{setPassword2(e.target.value)}}/>
-				  </Form.Group>
+									  <Form.Group className="mb-3" controlId="formBasicPassword">
+									    <Form.Label>Re-enter Password: </Form.Label>
+									    <Form.Control type="password" placeholder="Verify Password" onChange={(e)=>{setPassword2(e.target.value)}}/>
+									  </Form.Group>
 
-				  <Button variant="info" type="submit" disabled = {disabled}>
-				    Submit
-				  </Button>
-				</Form>
-			</div>
-		</div>
-		</Container>
+									  <Button variant="outline-dark" type="submit" disabled = {disabled}>
+									    Sign Up
+									  </Button>
+									</Form>
+
+							</div>
+						</div>
+					</div>
+					<div className = "col-12 col-md-6 p-0 ">
+					<div className="d-none d-md-block">
+						<div className = "register-brand text-center">
+							<h3>THE</h3>
+							<h1>PIZZA DISTRICT</h1>
+							{/*<img className="arrows mt-3" src="images/arrows.png"/>*/}
+							<img className="road" src="images/road.png"/>
+							{/*<h4 className = "text-center mt-3">Sign Up</h4>*/}
+						</div>
+						{/*<h1 className="text-center">Login Page</h1>*/}
+						<div className="d-flex justify-content-center">
+							{/*<h1 className = "text-center">Register</h1>
+*/}								<Form className="loginForm pb-5" onSubmit={(e)=>{registerUser(e)}} > 
+								  <Form.Group className="mb-3" controlId="formBasicEmail">
+								    <Form.Label>First Name:</Form.Label>
+								    <Form.Control className="inputForm" type="text" placeholder="Enter First Name" onChange={(e)=>{setFirstName(e.target.value)}}/>
+								  </Form.Group>
+
+								  <Form.Group className="mb-3" controlId="formBasicEmail">
+								    <Form.Label>Last Name:</Form.Label>
+								    <Form.Control className="inputForm" type="text" placeholder="Enter Last Name" onChange={(e)=>{setLastName(e.target.value)}}/>
+								  </Form.Group>
+
+								  <Form.Group className="mb-3" controlId="formBasicEmail">
+								    <Form.Label>Mobile Number</Form.Label>
+								    <Form.Control className="inputForm" type="text" placeholder="Enter Mobile number" onChange={(e)=>{setMobileNo(e.target.value)}}/>
+								  </Form.Group>
+
+								  <Form.Group className="mb-3" controlId="formBasicEmail">
+								    <Form.Label>Email address: </Form.Label>
+								    <Form.Control className="inputForm" type="email" placeholder="Enter email" onChange={(e)=>{setEmail(e.target.value)}}/>
+								  </Form.Group>
+
+								  <Form.Group className="mb-3" controlId="formBasicPassword">
+								    <Form.Label>Password: </Form.Label>
+								    <Form.Control className="inputForm" type="password" placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}}/>
+								  </Form.Group>
+
+								  <Form.Group className="mb-3" controlId="formBasicPassword">
+								    <Form.Label>Re-enter Password: </Form.Label>
+								    <Form.Control className="inputForm" type="password" placeholder="Verify Password" onChange={(e)=>{setPassword2(e.target.value)}}/>
+								  </Form.Group>
+
+								  <Button variant="outline-dark" type="submit" disabled = {disabled}>
+								    Sign Up
+								  </Button>
+								</Form>
+
+						</div>
+					</div>
+
+						{/*<a href="https://www.vecteezy.com/free-vector/crossed-arrows">Crossed Arrows Vectors by Vecteezy</a>*/}
+					</div>
+				</div>
+					
+						
+				
+				</Container>
 
 	);
 

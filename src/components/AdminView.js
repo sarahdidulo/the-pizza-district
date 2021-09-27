@@ -13,6 +13,10 @@ export default function AdminView(){
 	let [imgURL, setImgURL] = useState('');
 	let [identifier, setId] = useState('');
 	let calledModal;
+	let [displayBlockVal, setDisplayBlockVal] = useState('none');
+	let [displayCardBlockVal, setDisplayCardBlockVal] = useState('inline-block');
+	let [editId, setEditId] = useState('');
+
 
 	let [show, setShow] = useState(false);
 	let [showAdd, setShowAdd] = useState(false);
@@ -113,6 +117,18 @@ export default function AdminView(){
 
 	}
 
+	const showEditInput = (id) => {
+		console.log("inside edit input");
+		setEditId(id);
+		// fetchAllProducts();
+	}
+
+	const displayBlock = () => {
+		console.log("insde display block");
+		setDisplayBlockVal('inline-block');
+		setDisplayCardBlockVal('none');
+	}
+
 	const deleteProduct = (id) => {
 		fetch(`https://serene-dawn-74407.herokuapp.com/api/products/${id}/delete`, {
 			method: "DELETE",
@@ -204,19 +220,34 @@ export default function AdminView(){
 		return (
 		
 		// {<h1>{element.name}</h1>}
+
 		<div className = "product d-inline-block p-4">
 		<Card className="pizzaCard" style={{ width: '18rem' }} >
 		<div className="pizzaPic">
 		  <Card.Img variant="top" src={element.imgURL} />
 		 </div>
-		  <Card.Body className="text-left">
-		    <Card.Title className="cardTitle d-inline-block" key = {element._id}>{element.name}</Card.Title>
-
-		    	<Button className = "btn editBtn align-items-right" variant="info" onClick={()=>{showModal(element._id)}}><img src="images/pencil.png"/></Button>
+		 {/*{(element._id == {editId}) ? (console.log("inside product html"), setDisplayBlockVal('inline-block'), setDisplayCardBlockVal('none')) : null
+		 }*/}
+		  <Card.Body className="text-left d-inline-block">
+		    <Card.Title className="cardTitle m-0" style={{display: `${displayCardBlockVal}`}} key = {element._id}>{element.name}</Card.Title>
+		    <div className="form-group" style={{display: `${displayBlockVal}`}}>
+		    	<input className="form-control" placeholder={element.name} type="text"/>
+		    </div>
+		    <Button className = "btn editBtn align-items-right" onClick={()=>{showModal(element._id)}}><img src="images/pencil.png"/></Button>
+		    
+		    	
 		  
-		    <Card.Text className="cardText">
-		      <p>{element.description}</p>
-		      <p>Php {element.price}</p>
+		    <Card.Text className="cardText d-flex m-0 pt-3">
+		      <p className="desc" style={{display: `${displayCardBlockVal}`}}>{element.description}</p>
+		      <div className="form-group" style={{display: `${displayBlockVal}`}}>
+		    	<input className="form-control" placeholder={element.description}type="text"/>
+		    </div>
+		    <div className="price text-right">
+		      <p style={{display: `${displayCardBlockVal}`}}>Php {element.price}</p>
+		     </div>
+		      <div className="form-group" style={{display: `${displayBlockVal}`}}>
+		    	<input className="form-control" placeholder={element.description} type="text"/>
+		   	 </div>
 		    </Card.Text>
 		    <div className="card-button text-center">
 		    
@@ -224,11 +255,11 @@ export default function AdminView(){
 		    	(element.isActive == true) ?
 
 		    	
-		    	<Button className = "btn archiveBtn mr-2" variant="info" onClick={()=>{archiveProduct(element._id)}}>Archive</Button> :
-		    	<Button className = "btn unarchiveBtn mr-2" variant="success" onClick={()=>{unarchiveProduct(element._id)}}>Unarchive</Button>
+		    	<Button className = "btn archiveBtn mr-2 rounded-0" onClick={()=>{archiveProduct(element._id)}}>Archive</Button> :
+		    	<Button className = "btn unarchiveBtn mr-2 rounded-0" variant="success" onClick={()=>{unarchiveProduct(element._id)}}>Unarchive</Button>
 		    	
 		    }
-		    <Button className = "btn archiveBtn" variant="danger" onClick={()=>{deleteProduct(element._id)}}>Delete</Button>
+		    <Button className = "btn formatBtn rounded-0" variant="danger" onClick={()=>{deleteProduct(element._id)}}>Delete</Button>
 		    </div>
 		  </Card.Body>
 		</Card>

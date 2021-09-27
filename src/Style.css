@@ -33,11 +33,22 @@
 	height: 100vh;
 }
 
-.home-brand{
-	margin-top: 20%;
+.bg-register{
+	background-image: url('./images2/bg-home.jpg');
+	background-size: cover;
+	background-position: top;
+	/*background-position: 50%	 19%;*/
+	/*background-color: gray;*/
+	height: auto;
+	padding-bottom: 10%;
 }
 
-.home-brand h1, .home-brand h3{
+
+.home-brand{
+	margin-top: 10%;
+}
+
+.home-brand h1, .home-brand h3, .register-brand h1, .register-brand h3{
 	font-family: 'Bree Serif', serif;
 	letter-spacing: 2px;
 	margin: 0;
@@ -50,7 +61,7 @@
 	margin:  0px 20%;
 }*/
 
-.home-brand .road{
+.road{
 	height: 33px;
 	width: 35px;
 	margin-top: 0%;
@@ -89,7 +100,7 @@
 	background-color: white;
 	width: 90%;
 	font-size: 14px;
-	padding: 10px;
+	padding: 20px;
 	opacity: .9;
 }
 
@@ -97,20 +108,45 @@
 	margin-top: 5%;
 }*/
 
+.home-pizza .pizzaButton{
+	background-color: #1e1e24;
+	border-color: #1e1e24;
+	/*font-weight: bold;*/
+	padding: 8px 15px;
+	/*color: black;*/
+}
+
+.home-pizza .pizzaButton:hover{
+	background-color: white;
+	border-color: #1e1e24;
+	font-weight: bold;
+	padding: 8px 15px;
+	color: black;
+}
+
+.home-pizza h2{
+	color: white;
+	font-size: 50px;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	text-shadow: 2px 2px black;
+}
 .adminpage-title{
 	margin-top: 8%;
 }
 
 .product .editBtn{
-	/*width: 20%;*/
-	/*border-radius: 50%;*/
-	/*box-shadow: 2px 2px 5px gray;;*/
+	/*width: 15%;*/
+	border-radius: 50%;
+	/*box-shadow: 2px 2px 5px gray;*/
+	background-color: white;
+	border-color: #495057;
 }
 
 .product .editBtn:hover{
 	/*width: 20%;*/
 	/*box-shadow: 2px 2px 5px gray;;*/
-	background-color: gray;
+	background-color: lightgray;
 	border-color: gray;
 	color: steelblue;
 }
@@ -120,23 +156,42 @@
 	height: 16px;
 }
 
-.archiveBtn, .unarchiveBtn{
+.archiveBtn, .unarchiveBtn, .formatBtn{
 	width: 40%;
 	height: 40px;
+	border-radius: none;
+	color: white;
+	font-weight: bold;
 	/*font-size: 8px;*/
+}
+
+.product .archiveBtn{
+	background-color: #495057;
+	border-color: #495057;
+}
+
+.product .archiveBtn:hover{
+	background-color: black;
+	border-color: #495057;
+	/*color: black;*/
 }
 
 .addProd .add-button{
 	font-size: 12px;
+	/*color: steelblue;
+	border-color: steelblue;*/
+	font-weight: bold;
+	/*background-color: transparent;*/
 }
 
 .product Button{
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .product .cardTitle{
 	font-weight: bold;
 	width: 82%;
+	height: 30px;
 }
 
 /*.product .pizzaCard{
@@ -154,6 +209,7 @@
 .product img{
 	transition: transform .2s;
 	height: 100%;
+	object-fit: cover;
 }
 
 .product img:hover{
@@ -167,22 +223,121 @@
 .pizzas img{
 	height: 100%;
 	width: 100%;
+	object-fit: cover;
+}
+
+.pizzaCard{
+	height: 390px;
+}
+
+.pizzaCard .form-group{
+	width: 82.9%;
+	padding-right: 10px;
+}
+
+
+.pizzaCard .desc{
+	width: 75%;
+	height: 40px;
 }
 
 .history, .contact{
 	padding: 5%;
 }
 
+.cart-add{
+	font-size: 14px;
+}
+
+.cart-add p{
+	height: 10px;
+	padding: 0px;
+	font-size: 14px;
+}
+
+.cart-add Button{
+	width: 45%;
+	font-size: 14px;
+	border-radius: none;
+	background-color: #ff4d6d;
+	border-color: #ffadad;
+	color: white;
+	font-weight: bold;
+	/*padding: 0px;*/
+}
+
+.cart-add input{
+	width: 20%;
+	font-size: 14px;
+}
+
+Nav .link{
+	margin-right: 5px;
+	font-size: 14px;
+}
+
 /*#navbrand{
 	color: green;
 }*/
+
+.userView-title{
+	margin-top: 10%;
+}
+
+.badge{
+	height: 15px;
+	width: auto;
+}
+
+.cartHeader{
+	margin-top: 20%;
+	margin-bottom: 5%;
+	font-weight: bold;
+}
+
+.cart table{
+	background-color: #ced4da;
+}
+.cart .onlinePayment{
+	background-color: #ff4d6d;
+	border-color: #ffadad;
+	color: white;
+	font-weight: bold;
+}
+
+.cart .onlinePayment:hover{
+	background-color: white;
+	border-color: black;
+	color: black;
+	font-weight: bold;
+}
+
+.profilePage{
+	margin-top: 20%;
+}
+
+.displayNoItems{
+	margin-top: 20%;
+}
+
 @media (min-width: 576px){
+	.home-brand{
+		margin-top: 5%;
+	}
 	
-	
+	.bg-register{
+		height: 100%;
+	}
 }
 
 @media (min-width: 768px){
+	.home-brand{
+		margin-top: 25%;
+	}
 
+	.register-brand{
+		margin-top: 15%;
+	}
 	
 }
 
@@ -191,4 +346,19 @@
 	#thisNav {
 		height: 65px;
 	}
+
+	.logOut{
+		border-left: 1px solid gray;
+		height: 35px;
+		
+	}
+
+	Nav Link .logOut{
+		padding-left: 100px;
+	}
+
+	.home-brand{
+		margin-top: 23%;
+	}
+
 }
