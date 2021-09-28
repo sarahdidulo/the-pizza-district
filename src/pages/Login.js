@@ -10,6 +10,8 @@ import {
 
 import UserContext from './../UserContext';
 
+import swal from 'sweetalert';
+
 export default function Login(){
 
 	const [email, setEmail] = useState('');
@@ -19,6 +21,10 @@ export default function Login(){
 	// console.log("from login", user);
 
 	let history = useHistory();
+
+	if(user.id != null){
+		history.push('/home');
+	}
 
 	const loginUser = (e) => {
 
@@ -67,12 +73,14 @@ export default function Login(){
 
 			} else {
 
-				alert('Unable to login. Kindly try again.')
+				swal('Unable to login. Kindly try again.')
 			}
 
 		})
 
 	}
+
+	console.log(user);
 
 	return (
 		<Container fluid>
@@ -130,7 +138,7 @@ export default function Login(){
 					  <Button variant="outline-dark" type="submit">
 					    Log In
 					  </Button>
-					  <small className="ml-2">Not yet a member? <a href="/register">Sign up here</a></small>
+					  <small className="ml-2">Not yet a member? <a href="/register">Sign up here.</a></small>
 					</Form>
 
 				</div>

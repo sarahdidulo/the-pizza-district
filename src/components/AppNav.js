@@ -37,7 +37,7 @@ export default function AppNav() {
 		  			isAdmin: null,
 		  			name: null
 		  		})
-		    	history.push("/login");
+		    	history.push("/");
 		    } 
 		});
 
@@ -81,12 +81,13 @@ export default function AppNav() {
 					: (user.id != null && user.isAdmin == "true") ?	
 					<Fragment>
 						<Nav.Link className="link" href="/products">Menu</Nav.Link>
+						<Nav.Link className="link" href="/add-product">Add Product</Nav.Link>
 						{/*<Nav.Link className="link" href="/users">Users</Nav.Link>*/}
 						<Nav.Link className="link logOut pl-lg-3" onClick={logOut}>Log Out</Nav.Link>
 					</Fragment>
 					: (user.id == null) ?
 					<Fragment>
-						<Nav.Link className="link" href="/login">Login</Nav.Link>
+						<Nav.Link className="link" href="/">Login</Nav.Link>
 						<Nav.Link className="link" href="/register">Sign Up</Nav.Link>
 					</Fragment>
 					: null

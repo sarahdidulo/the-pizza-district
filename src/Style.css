@@ -127,9 +127,14 @@
 .home-pizza h2{
 	color: white;
 	font-size: 50px;
-	font-weight: bolder;
+	font-weight: 900;
 	letter-spacing: 2px;
 	text-shadow: 2px 2px black;
+}
+
+.history img{
+	height: 50px;
+	margin-bottom: 10px;
 }
 .adminpage-title{
 	margin-top: 8%;
@@ -141,6 +146,7 @@
 	/*box-shadow: 2px 2px 5px gray;*/
 	background-color: white;
 	border-color: #495057;
+	height: 29px;
 }
 
 .product .editBtn:hover{
@@ -152,8 +158,8 @@
 }
 
 .editBtn img{
-	width: 16px;
-	height: 16px;
+	width: 100%;
+	margin-top: -7px;
 }
 
 .archiveBtn, .unarchiveBtn, .formatBtn{
@@ -191,7 +197,7 @@
 .product .cardTitle{
 	font-weight: bold;
 	width: 82%;
-	height: 30px;
+	height: 55px;
 }
 
 /*.product .pizzaCard{
@@ -239,10 +245,21 @@
 .pizzaCard .desc{
 	width: 75%;
 	height: 40px;
+	padding-top: 0px;
+	/*margin-bottom: 10px;*/
 }
 
 .history, .contact{
-	padding: 5%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.history{
+	padding-top: 5%;
+}
+
+.contact{
+	padding-top: 3%;
 }
 
 .cart-add{
@@ -318,6 +335,58 @@ Nav .link{
 
 .displayNoItems{
 	margin-top: 20%;
+}
+
+.addProductPage{
+	margin-top: 20%;
+}
+
+.addProductPage h1, .addProductPage h3{
+	font-family: 'Bree Serif', serif;
+	letter-spacing: 1px;
+}
+
+footer{
+	background-color: #1e1e24;
+	color: white;
+	margin-top: 5%;
+	padding-bottom: 18px;
+	/*width: 100%;*/
+}
+
+footer div{
+	/*width: ;*/
+}
+
+footer .quotes{
+	height: 35px;
+	margin-top: -20px;
+}
+
+footer .quote{
+	/*padding-top: 100px;*/
+	line-height: 50px;
+}
+
+footer .iconfb{
+	height: 30px;
+	margin-right: 5px;
+}
+
+footer .iconig{
+	height: 26px;
+}
+
+footer .iconsRef{
+	text-decoration: none;
+	color: #48cae4;
+	/*color: black;*/
+}
+
+.loginForm a{
+	text-decoration: none;
+	color: #48cae4;
+	font-weight: bold;
 }
 
 @media (min-width: 576px){

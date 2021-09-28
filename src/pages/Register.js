@@ -1,4 +1,4 @@
-import React , {useState, useEffect} from 'react';
+import React , {useState, useEffect, useContext} from 'react';
 
 import {
 	Form,
@@ -7,6 +7,10 @@ import {
 } from 'react-bootstrap';
 
 import {Redirect, useHistory} from 'react-router-dom';
+
+import UserContext from './../UserContext';
+
+import swal from 'sweetalert';
 
 export default function Register(e){
 
@@ -17,14 +21,19 @@ export default function Register(e){
 	const [password, setPassword] = useState('');
 	const [password2, setPassword2] = useState('');
 	const [disabled, setDisabled] = useState(true);
+	const {user, setUser} = useContext(UserContext);
 
 	let history = useHistory();
+
+	if(user.id != null){
+		history.push('/home');
+	}
 
 	const registerUser = (e) => {
 
 		e.preventDefault();
 		if(password != password2){
-			alert("Please re-enter again your password");
+			swal("Please re-enter again your password");
 		} else {
 
 			fetch("https://serene-dawn-74407.herokuapp.com/api/users/check-email", {
@@ -55,17 +64,17 @@ export default function Register(e){
 					.then(result=>{
 						// console.log(result); //if return is true then use is successfully registered.
 						if(result == true){
-							alert("You successfully registered!");	
+							swal("","You successfully registered!","success");	
 							history.push("/login");
 						} else {
-							alert("Not registered, please try again.");
+							swal("Not registered, please try again.");
 						}
 						
 						// <Redirect to="/login" />
 					})
 
 				} else {
-					alert('Email is already in use');
+					swal('Email is already in use');
 				}
 			})	
 

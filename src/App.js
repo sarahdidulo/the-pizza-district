@@ -15,6 +15,7 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Cart from './pages/Cart';
 import Profile from './pages/Profile';
+import AddProduct from './pages/AddProduct';
 // import Users from './pages/Users';
 import AppNav from './components/AppNav';
 
@@ -111,9 +112,10 @@ export default function App(){
 					<Route exact path="/home" component={Home}/>
 					<Route exact path="/products" component={Products}/>
 					<Route exact path="/register" component={Register}/>
-					<Route exact path="/login" component={Login}/>
+					<Route exact path="/" component={Login}/>
 					<Route exact path="/cart" component={Cart}/>
 					<Route exact path="/profile" component={Profile}/>
+					<Route exact path="/add-product" component={AddProduct}/>
 					{/*<Route exact path="/users" component={Users}/>
 */}					{/*<Route exact path="/logout" component={Logout}/>*/}
 				</Switch>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState, Fragment} from 'react';
 import {Card, Button, Container, Form, Modal} from 'react-bootstrap';
-
+import swal from 'sweetalert';
 
 export default function AdminView(){
 
@@ -61,10 +61,21 @@ export default function AdminView(){
 			.then(result=>{
 				// console.log(result);
 				if(result==true){
-					fetchAllProducts();
-					alert("Product was successfully archived")
+					swal({
+					  title: "Are you sure you want to archive this?",
+					  text: "",
+					  icon: "warning",
+					  buttons: true,
+					  dangerMode: true,
+					})
+					.then((willDelete) => {
+					  if (willDelete) {
+					  		swal(`Product was archived.`);
+					  		fetchAllProducts();	
+					    } 
+					});
 				} else {
-					alert(`Product was not archived. Please try again`);
+					swal(`Product was not archived. Please try again`);
 				}
 			})
 
@@ -83,9 +94,9 @@ export default function AdminView(){
 				console.log(result);
 				if(result==true){
 					fetchAllProducts();
-					alert(`Product was successfully unarchived`);
+					swal("","Product was successfully unarchived","success");
 				} else {
-					alert(`Product was not unarchived. Please try again`);
+					swal(`Product was not unarchived. Please try again`);
 				}
 		})
 	}
@@ -108,10 +119,10 @@ export default function AdminView(){
 			console.log(result);
 			if(result==true){
 				fetchAllProducts();
-				alert("Product edited successfully");
+				swal("","Product edited successfully","success");
 				handleClose();
 			} else {
-				alert(`Product was not updated. Please try again`);	
+				swal(`Product was not updated. Please try again`);	
 			}
 		})
 
@@ -139,10 +150,22 @@ export default function AdminView(){
 		}).then(result=>result.json())
 		.then(result=>{
 			if(result==true){
-				alert(`Product was deleted`);
-				fetchAllProducts();
+				swal({
+				  title: "Are you sure you want to delete this?",
+				  text: "",
+				  icon: "warning",
+				  buttons: true,
+				  dangerMode: true,
+				})
+				.then((willDelete) => {
+				  if (willDelete) {
+				  		swal(`Product was deleted`);
+				  		fetchAllProducts();	
+				    } 
+				});
+				
 			} else{
-				alert(`Product was not yet deleted`);
+				swal(`Product was not yet deleted`);
 			}
 		})
 	}
@@ -165,11 +188,11 @@ export default function AdminView(){
 		}).then(result=>result.json())
 		.then(result=>{
 			if(result == true){
-				alert("Product was successfully created");
+				swal("","Product was successfully created","success");
 				handleCloseAdd();
 				fetchAllProducts();
 			} else {
-				alert("Product was not added - kindly try again.")
+				swal("Product was not added - kindly try again.")
 			}
 		})
 	}
@@ -229,15 +252,17 @@ export default function AdminView(){
 		 {/*{(element._id == {editId}) ? (console.log("inside product html"), setDisplayBlockVal('inline-block'), setDisplayCardBlockVal('none')) : null
 		 }*/}
 		  <Card.Body className="text-left d-inline-block">
-		    <Card.Title className="cardTitle m-0" style={{display: `${displayCardBlockVal}`}} key = {element._id}>{element.name}</Card.Title>
+
+		  	<div className="d-flex">
+		    <Card.Title className="cardTitle m-0 w-70" style={{display: `${displayCardBlockVal}`}} key = {element._id}>{element.name}</Card.Title>
 		    <div className="form-group" style={{display: `${displayBlockVal}`}}>
 		    	<input className="form-control" placeholder={element.name} type="text"/>
 		    </div>
-		    <Button className = "btn editBtn align-items-right" onClick={()=>{showModal(element._id)}}><img src="images/pencil.png"/></Button>
-		    
+		  	<Button className = "btn editBtn align-items-right" onClick={()=>{showModal(element._id)}}><img src="images/pencil.png"/></Button>
+		    </div>
 		    	
 		  
-		    <Card.Text className="cardText d-flex m-0 pt-3">
+		    <Card.Text className="cardText d-flex m-0 pt-1">
 		      <p className="desc" style={{display: `${displayCardBlockVal}`}}>{element.description}</p>
 		      <div className="form-group" style={{display: `${displayBlockVal}`}}>
 		    	<input className="form-control" placeholder={element.description}type="text"/>
@@ -320,7 +345,7 @@ export default function AdminView(){
 						    	<Button className= "mr-1" variant="secondary" onClick={handleClose}>
 						    	  Close
 						    	</Button>
-						    	<Button variant="primary" onClick={(e)=>{editProduct(e, identifier)}}>
+						    	<Button variant="info" onClick={(e)=>{editProduct(e, identifier)}}>
 						    	  Save Changes
 						    	</Button>
 					    	</Form>

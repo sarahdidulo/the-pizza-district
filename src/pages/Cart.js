@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 import {Container, Button} from 'react-bootstrap';
 
 import {useHistory} from 'react-router-dom';
+
+import UserContext from './../UserContext';
 
 import swal from 'sweetalert';
 
@@ -14,6 +16,7 @@ let [cartTotal, setCartTotal] = useState('');
 let [cartId, setCartId] = useState('');
 let currentCart;
 let history = useHistory();
+let {countItems, setCountItems} = useContext(UserContext);
 
 const onlinePayment = (e, id) => {
 	e.preventDefault();
@@ -36,7 +39,7 @@ const onlinePayment = (e, id) => {
 			console.log(result);
 			if(result==true){
 				//alert(`Order is successfully paid`);
-				
+				setCountItems(0);
 				swal("Thank you for choosing our products! :-)", {
 				  icon: "success",
 				});
@@ -57,6 +60,8 @@ const onlinePayment = (e, id) => {
 	});
 
 }
+
+
 
 	const getCart = () => {
 		fetch("https://serene-dawn-74407.herokuapp.com/api/orders/current-order", {

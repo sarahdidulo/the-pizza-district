@@ -139,7 +139,7 @@ const {countItems, setCountItems} = useContext(UserContext);
 		 }*/}
 		  <Card.Body className="text-left d-inline-block">
 		    <Card.Title className="cardTitle m-0" key = {element._id}>{element.name}</Card.Title>
-	      <Card.Text className="cardText d-flex m-0 pt-4">
+	      <Card.Text className="cardText d-flex m-0">
 		      <p className="desc">{element.description}</p>
 		      
 		    <div className="price text-right">
