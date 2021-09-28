@@ -87,6 +87,7 @@ export default function AppNav() {
 					</Fragment>
 					: (user.id == null) ?
 					<Fragment>
+						<Nav.Link className="link" href="/products">Menu</Nav.Link>
 						<Nav.Link className="link" href="/">Login</Nav.Link>
 						<Nav.Link className="link" href="/register">Sign Up</Nav.Link>
 					</Fragment>

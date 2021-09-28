@@ -146,11 +146,15 @@ const {countItems, setCountItems} = useContext(UserContext);
 		      <p>Php {element.price}</p>
 		     </div>
 		    </Card.Text>
-		    <div className="cart-add text-center d-flex justify-content-center">
-		   	
-			    <Button className = "btn mr-auto rounded-0" variant="dark" elementId = {element._id} onClick={(e)=>{addToCart(e, element._id, document.getElementById(element._id).value)}}>Add to Cart</Button>
-			    <p className="qty mr-2 p-0 d-block align-self-end">Qty:</p><input className="form-control text-center" id = {element._id} type="number" placeholder="0" min="0"/>
-		    </div>
+		    
+		   		{(user.id != null) ?
+		   		<div className="cart-add text-center d-flex justify-content-center">
+				    <Button className = "btn mr-auto rounded-0" variant="dark" elementId = {element._id} onClick={(e)=>{addToCart(e, element._id, document.getElementById(element._id).value)}}>Add to Cart</Button>
+				    <p className="qty mr-2 p-0 d-block align-self-end">Qty:</p><input className="form-control text-center" id = {element._id} type="number" placeholder="0" min="0"/>
+		  	    </div>
+			    : null
+				}
+			    
 		  </Card.Body>
 		</Card>  
 		  	
